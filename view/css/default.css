@@ -95,6 +95,10 @@ th, td {
     text-shadow: none;
 }
 
+#file{
+    text-shadow: none;
+}
+
 #recenzent{
     padding: 0px 0px 0px 0px;
 }

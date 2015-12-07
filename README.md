@@ -1,4 +1,4 @@
 Semestrální práce z předmětu KIV/WEB
-Standartní zadání
-student A13B0298P
-Ak. rok 2015/2016
+/nStandartní zadání
+/nstudent A13B0298P
+/nAk. rok 2015/2016

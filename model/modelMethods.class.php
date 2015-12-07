@@ -190,8 +190,13 @@ class ModelMethods extends Model{
         foreach ($rows as &$value) {
             $idAuthor = $value['id'];
         }
+        if(isset($data["fileToUpload"])){
+            $file = $data["fileToUpload"];
+            $query = "INSERT INTO `posts`(`id_user`, `post_name`, `content`, `file`) VALUES ('$idAuthor','$postName','$postText','$file');";
+        }else{
+            $query = "INSERT INTO `posts`(`id_user`, `post_name`, `content`) VALUES ('$idAuthor','$postName','$postText');";
+        }
         
-        $query = "INSERT INTO `posts`(`id_user`, `post_name`, `content`) VALUES ('$idAuthor','$postName','$postText');";
         
         $this->connection->exec($query);
     }
@@ -318,7 +323,7 @@ class ModelMethods extends Model{
     
      public function getSinglePost($postName){
         
-        $query = "SELECT posts.id, nick, post_name, content FROM posts, users WHERE posts.post_name = '$postName' AND posts.id_user = users.id;";
+        $query = "SELECT posts.id, nick, post_name, content, file FROM posts, users WHERE posts.post_name = '$postName' AND posts.id_user = users.id;";
         $statement = $this->connection->prepare($query);
         $statement->execute();
         
@@ -340,7 +345,7 @@ class ModelMethods extends Model{
     
     public function getPostByName($postName, $userId){
         
-        $query = "SELECT nick, posts.id, content FROM posts, users WHERE posts.post_name = '$postName' AND posts.id_user = '$userId' AND users.id = '$userId';";
+        $query = "SELECT nick, posts.id, content, file FROM posts, users WHERE posts.post_name = '$postName' AND posts.id_user = '$userId' AND users.id = '$userId';";
         $statement = $this->connection->prepare($query);
         $statement->execute();
         

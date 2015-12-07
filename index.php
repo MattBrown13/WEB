@@ -77,6 +77,7 @@
                     $template_params["postName"] = $postName;
                     $template_params["postContent"] = $postContent;
                     $template_params["postAuthor"] = $postAuthor;
+                    $template_params["file"] = $rows[0]["file"];
                     break;
                 case "setReview":
                     $page = "setReview";
@@ -130,9 +131,11 @@
                         if(isset($_POST["post_name"])){
                             if($controller->checkDataNewPost($_POST)){
                                 $_POST["author"] = $_SESSION["login"];
+                                $_POST["fileToUpload"] = $_FILES["fileToUpload"]["name"];
                                 $model->addNewPost($_POST);
                                 $template_params["userPosts"] = $model->getUserPosts($_SESSION["id"]);
                                 $page = "userPosts";
+                                $msg = $controller->upload();
                             }else{
                                 $msg = "Hodnoty nejsou správně vzplněny";
                             }   
@@ -171,6 +174,7 @@
                         $template_params["postContent"] = $postContent;
                         $template_params["postId"] = $postId;
                         $template_params["postAuthor"] = $postAuthor;
+                        $template_params["file"] = $rows[0]["file"];
                     }
                     break;
                 case "singlePost":
@@ -183,6 +187,7 @@
                     $template_params["postName"] = $postName;
                     $template_params["postContent"] = $postContent;
                     $template_params["postAuthor"] = $postAuthor;
+                    $template_params["file"] = $rows[0]["file"];
                     break;
                 default:
                     $page = "404";
@@ -243,6 +248,7 @@
                     $template_params["postName"] = $postName;
                     $template_params["postContent"] = $postContent;
                     $template_params["postAuthor"] = $postAuthor;
+                    $template_params["file"] = $rows[0]["file"];
                     break;
                 case "reviewPost":
                     $page = "reviewPost";
@@ -254,6 +260,7 @@
                     $template_params["postName"] = $postName;
                     $template_params["postContent"] = $postContent;
                     $template_params["postAuthor"] = $postAuthor;
+                    $template_params["file"] = $rows[0]["file"];
                     if(isset($_POST["post_name"])){
                         $_POST["id"] = $_SESSION["id"];
                         $data = $model->addReviewing($_POST)[0];

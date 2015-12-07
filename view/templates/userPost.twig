@@ -12,6 +12,15 @@
             <textarea id="text" name="text" class="form-control" rows="10" readonly>{{postContent}}</textarea>
         </div> 
     </div>
+    {% if file != "" %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a  id="file" href="uploads/{{file}}" class="btn btn-default btn-sm">
+                    Otevřít soubor
+                </a>    
+            </div>
+        </div>
+    {% endif %}
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <a  id="deletePost" href="index.php?page=userPost&action=delete&postName={{postName}}" class="btn btn-default btn-sm">
