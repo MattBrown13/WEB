@@ -1,0 +1,46 @@
+<h3>Tvůj příspěvek</h3>
+<form class="form-horizontal" method="post">
+    <div class="form-group">
+        <label for="post_name" class="col-sm-2 control-label">Název příspěvku</label>
+        <div class="col-xs-8">
+            <textarea id="post_name" name="post_name" class="form-control" rows="1" readonly>{{postName}}</textarea>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="postAuthor" class="col-sm-2 control-label">Autor</label>
+        <div class="col-xs-8">
+            <textarea id="postAuthor" name="postAuthor" class="form-control" rows="1" readonly>{{postAuthor}}</textarea>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="text" class="col-sm-2 control-label">Text</label>
+        <div class="col-xs-8">
+            <textarea id="text" name="text" class="form-control" rows="10" readonly>{{postContent}}</textarea>
+        </div> 
+    </div>
+    <br>
+    <h3>Hodnocení</h3>
+    <div class="form-group">
+        <label for="topic" class="col-sm-2 control-label">Téma</label>
+        <select class="reviewPost" id="topic" name="topic">
+            {% for i in 1..5 %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% set count = count + 1 %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="quality" class="col-sm-2 control-label">Kvalita</label>
+        <select class="reviewPost" id="quality" name="quality">
+            {% for i in 1..5 %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% set count = count + 1 %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+           <button type="submit" class="btn btn-default">Hodnotit</button>
+        </div>
+    </div>
+</form>

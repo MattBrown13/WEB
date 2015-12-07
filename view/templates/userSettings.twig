@@ -1,0 +1,42 @@
+<h4>Změna hesla</h4>
+<form class="form-horizontal" method="post">
+    <div class="form-group">
+        <label for="oldPassword" class="col-sm-2 control-label">Staré heslo<a>***</a></label>
+        <div class="col-xs-6">
+            <input type="password" name="oldPassword" class="form-control" id="oldPassword" placeholder="Staré heslo">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="newPassword" class="col-sm-2 control-label">Nové heslo<a>***</a></label>
+        <div class="col-xs-6">
+            <input type="password" name="newPassword" class="form-control" id="newPassword" placeholder="Nové heslo">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="passwordControll" class="col-sm-2 control-label">Potvrzení hesla<a>***</a></label>
+        <div class="col-xs-6">
+            <input type="password" name="passwordControll" class="form-control" id="passwordControll" placeholder="Potvrzení hesla">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            
+            {{ msg }}
+            
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <p><a>***</a> Je nutno vyplnit</p>
+            <button type="submit" class="btn btn-default">Změnit</button>  
+        </div>
+    </div>
+</form>
+<h4>Smazat účet</h4>
+<form class="form-horizontal" method="post">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="deleteUser" name="deleteUser" type="submit" class="btn btn-default">Smazat účet</button>  
+        </div>
+    </div>
+</form>

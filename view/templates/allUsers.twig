@@ -1,0 +1,39 @@
+<div id="tabulka">
+    <h3>Seznam příspěvků</h3>
+    <table style="width:100%" class="table-bordered">
+        <thead>
+            <tr>
+                <th style="width:25%">Nick</th>
+                <th style="width:20%">Jméno</th>		
+                <th style="width:25%">E-mail</th>	
+                <th style="width:20%">Pozice</th>	
+                <th style="width:10%">Nasatvit</th>
+                <th style="width:10%">Smazat</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in allUsers %}
+                <form method="post">
+                    <tr> 
+                        <td id="nick" name="nick"><input class="tableData" type="text" id="nick" name="nick" value="{{user.nick}}" readonly></td>
+                        <td>{{user.first_name}}</td>	
+                        <td>{{user.email}}</td>
+                        <td><select id="position" name="position" style="width:100%" >
+                                <option value="{{user.position}}">{{user.position}}</option>
+                                {% for position in positions %}
+                                    {% if position != user.position %}
+                                    <option value="{{position}}">{{position}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td><button type="submit" class="tableData">Změnit</button></td>
+                        <td>{% if user.position != "Administrator" %}<a href="index.php?page=allUsers&userId={{user.id}}"><span class="glyphicon glyphicon-remove"></span></a>{% endif %}</td>
+                    </tr>
+                </form>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+ 
+

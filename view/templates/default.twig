@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Forum</title>
+        <link rel="stylesheet" href="libs/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="view/css/default.css">
+    </head>
+    
+    <body>
+        <div id="hlavicka" class="col-xs-12">
+            <div class="col-xs-5" id="infoAboutUser">
+                Přihlášen: {{ user }} {{ "\n"|nl2br }}
+                Pozice: {{ position }}{{ "\n"|nl2br }}
+                <p>
+                    <a id="logOutBtn" href="index.php?logout=""" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-log-out"></span> Log out
+                    </a>
+                </p> 
+            </div>
+            <div class="col-xs-7">
+                <h1>WEB Konference</h1>
+                Semestrální práce z KIV/WEB
+            </div>
+        </div>   
+        <div class="container">
+            <div class="row">                            
+                <div id="pracovni_plocha" class="col-xs-12">
+                    
+                    {% include menu %}
+                    
+                    <div class="col-xs-10">
+                    
+                     {% include page %}
+                        
+                    </div>
+                    
+                   
+                    
+                    <div id="paticka" class="col-xs-12">
+                        <hr>
+                        Design and Programed &copy; by Matt in 2015 
+                    </div>
+                </div>                
+            </div>
+        </div>        
+    </body>
+</html>

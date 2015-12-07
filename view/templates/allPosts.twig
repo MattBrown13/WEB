@@ -1,0 +1,37 @@
+<div id="tabulka">
+    <h3>Seznam příspěvků</h3>
+    <table style="width:100%" class="table-bordered table-striped table-howered" >
+        <thead>
+            <tr>
+                {% if position == "Administrator" %}
+                <th style="width:40%">Název vlákna</th>
+                <th style="width:35%">Autor vlákna</th>		
+                <th style="width:10%">Hodnocení</th>
+                <th style="width:5%">Akce</th>
+                {% else %}
+                <th style="width:40%">Název vlákna</th>
+                <th style="width:40%">Autor vlákna</th>		
+                <th style="width:10%">Hodnocení</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in allPosts %}
+                <tr>
+                    {% if position == "Administrator" %}
+                    <td><a href="index.php?page=singlePost&postName={{post.post_name}}">{{post.post_name}}</a></td>
+                    <td>{{post.nick}}</td>		
+                    <td>{{post.mean}}</td>
+                    <td><a href="index.php?page=allPosts&postId={{post.id}}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    {% else %}
+                    <td><a href="index.php?page=singlePost&postName={{post.post_name}}">{{post.post_name}}</a></td>
+                    <td>{{post.nick}}</td>		
+                    <td>{{post.mean}}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+ 
+

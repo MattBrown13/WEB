@@ -1,0 +1,110 @@
+body, html {
+    background: linear-gradient(0deg, #009999, #009999);
+    min-width: 500px;
+    
+}
+
+#logOutBtn{
+    background-color: #ACE6E6;
+    color: royalblue;
+}
+
+#infoAboutUser{
+    padding: 10px 0px 0px 20px;
+}
+
+#hlavicka{
+    color: orange;
+    padding: 10px 0px;/**vnitrni okraje**/
+    /*text-align: center;*/
+    border-bottom: orange 3px solid;
+}
+
+#pracovni_plocha{  
+    word-wrap: break-word;
+    color: whitesmoke;
+    text-shadow: 2px 2px grey;
+}
+
+#paticka{
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
+
+/*Main page*/
+
+#menu{
+    padding: 1% 0px 0px 0px;
+    text-shadow: none;
+}
+
+#menu ul{
+    list-style-type: none;
+    padding: 0px;
+}
+
+#menu a{
+    display: block;
+}
+
+#menu li{
+    border-radius: 5px;
+    padding: 7px;
+    background-color: #ACE6E6;
+    margin: 4px 0px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+#hlavni_panel{
+    padding: 1% 1% 0px 2%;
+}
+
+/*Login page*/
+
+#pracovni_plocha h3, h4{
+    padding: 0px 0px 20px 5%;
+}
+
+.odkaz{
+    color: whitesmoke !important;
+    text-shadow: 2px 2px grey !important;
+}
+
+/*PostsList Page*/
+th{
+    background-color: #009900;
+}
+
+td{
+    background-color: #009999;
+}
+
+td a{
+    color: black !important;
+}
+
+th, td {
+   /*border: 1px solid black;*/
+    padding: 0px 0px 0px 10px;
+    text-align: center !important;
+    color: black !important;
+}
+
+#deletePost{
+    text-shadow: none;
+}
+
+#recenzent{
+    padding: 0px 0px 0px 0px;
+}
+
+.tableData{
+    text-align: center !important;
+    background-color: #009999 !important;
+    border: none;
+}
+
+.reviewPost{
+    color: black;
+}

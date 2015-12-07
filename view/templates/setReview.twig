@@ -1,0 +1,56 @@
+<div id="tabulka">
+    <h3>Seznam příspěvků</h3>
+    <table style="width:100%" class="table-bordered">
+        <thead>
+            <tr>
+                <th style="width:40%" rowspan="2">Název vlákna</th>
+                <th style="width:25%" rowspan="2">Autor vlákna</th>		
+                <th style="width:35%" colspan="4">Recenze</th>	
+            </tr>
+            <tr>
+                <th style="width:20%">Recenzent</th>
+                <th style="width:5%">Téma</th>
+                <th style="width:5%">Kval.</th>
+                <th style="width:4%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for post in allPosts %}
+            {% set counter = 0 %}
+                {% for i in 0..allPosts|length %}
+                    {% if post.id == allReviews[counter]["postId"] %}
+                        {% set size = allReviews[counter].size + 1 %}
+                        <form method="post">
+                            <tr>
+                                <td id="postName" name="postName" rowspan="{{size}}"><input class="tableData" type="text" id="postName" name="postName" value="{{post.post_name}}" readonly></td>
+                                <td rowspan="{{size}}"><input class="tableData" type="text" value="{{post.nick}}" readonly></td>	
+                                <td id="recenzent" nick="recenzent"><select id="recenzent" name="recenzent" style="width:100%" >
+                                        {% for author in allUsers %}
+                                            <option value="{{author.nick}}">{{author.nick}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td colspan="3"><button class="tableData" id="but" type="submit" >>>Nastavit<<</button></td>
+                            </tr>
+                        </form>
+                            {% set count = allReviews[counter]|length - 2 %}
+                            {% for review in allReviews[counter] %}
+                            {% if count != 0 %}
+                                <tr>
+                                    <td>{{review.nick}}</td>
+                                    <td>{{review.topic}}</td>
+                                    <td>{{review.quality}}</td>
+                                    <td><a href="index.php?page=setReview&reviewId={{review.id_post}}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                </tr>
+                            {% set count = count - 1 %}
+                            {% endif %}
+                            {% endfor %}
+                    {% endif %}
+                {% set counter = counter + 1 %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+ 

@@ -1,0 +1,30 @@
+<h3>Příspěvek</h3>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="postName" class="col-sm-2 control-label">Název příspěvku</label>
+        <div class="col-xs-8">
+            <textarea id="postName" name="postName" class="form-control" rows="1" readonly>{{postName}}</textarea>
+        </div> 
+    </div>
+     <div class="form-group">
+        <label for="postAuthor" class="col-sm-2 control-label">Autor</label>
+        <div class="col-xs-8">
+            <textarea id="postAuthor" name="postAuthor" class="form-control" rows="1" readonly>{{postAuthor}}</textarea>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="text" class="col-sm-2 control-label">Text</label>
+        <div class="col-xs-8">
+            <textarea id="text" name="text" class="form-control" rows="8" readonly>{{postContent}}</textarea>
+        </div> 
+    </div>
+    {% if position == "Administrator" %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a id="deletePost" href="index.php?page=allPosts&action=delete&postName={{postName}}" class="btn btn-default btn-sm">
+                Smazat příspěvek
+            </a>    
+        </div>
+    </div>
+    {% endif %}
+</form>

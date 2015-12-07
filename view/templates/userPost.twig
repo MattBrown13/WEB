@@ -1,0 +1,22 @@
+<h3>Tvůj příspěvek</h3>
+<form class="form-horizontal" method="post">
+    <div class="form-group">
+        <label for="post_name" class="col-sm-2 control-label">Název příspěvku</label>
+        <div class="col-xs-8">
+            <textarea id="post_name" name="post_name" class="form-control" rows="1" readonly>{{postName}}</textarea>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="text" class="col-sm-2 control-label">Text</label>
+        <div class="col-xs-8">
+            <textarea id="text" name="text" class="form-control" rows="10" readonly>{{postContent}}</textarea>
+        </div> 
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a  id="deletePost" href="index.php?page=userPost&action=delete&postName={{postName}}" class="btn btn-default btn-sm">
+                Smazat příspěvek
+            </a>    
+        </div>
+    </div>
+</form>

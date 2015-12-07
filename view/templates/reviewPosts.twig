@@ -1,0 +1,21 @@
+<div id="tabulka">
+    <h3>Seznam příspěvků k hodnocení</h3>
+    <table style="width:100%" class="table-bordered">
+        <thead>
+            <tr>
+                <th style="width:45%">Název vlákna</th>
+                <th style="width:45%">Autor vlákna</th>		
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in allPosts %}
+                <tr>
+                    <td><a href="index.php?page=reviewPost&postName={{post.post_name}}">{{post.post_name}}</a></td>
+                    <td>{{post.nick}}</td>		
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+ 
+
